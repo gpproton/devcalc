@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="./assets/style.css">
+    <link href="./assets/css" rel="stylesheet" type="text/css">
+    <title>devCalc  | Bitwise Opertors |Bitshift | Bin | Hex |  RoR | xOr | NAND |XNOR and....</title>
+    <meta name="description" content="Programmer&#39;s 64 Bit calculator for working with 64 bit binary, hexadecimal bitshifts, calculations, rotations and more. Signed and unsigned numbers supported">
+<script src="./assets/sdk.js" async="" crossorigin="anonymous"></script>
+<script charset="utf-8" src="./assets/button.509719336ca39171c37a321231ccaf83.js"></script>
+
+</head>
+
+<body style="zoom: 1;">
+    <div id="container" style="width:100%; max-width:1000px;">
+        <table style="width:100%;">
+            <tbody><tr>
+                <td>
+                    <h1 style="color:#428bca; font-family:&#39;PT Sans&#39;; font-size:30px"> <span style="color:#000;">devCalc</span> 64 Bit Calculator</h1>
+            </td>
+            </tr>
+        </tbody></table>
+        <div id="history_control" style="left: 980px;">
+       	   <p><input type="button" id="history_undo" value="Undo" class="defbtn color_hex">
+               <input type="button" id="history_redo" value="Redo" class="defbtn color_bin">
+           </p>
+           <input type="button" id="history_clear" value="Clear" class="defbtn color_dec">
+       </div>
+       <div id="calc_container" class="PTMonoRegular" style="width: 960px; height: 600px;">
+        <div id="numfields">
+            <div id="numfield_dec" class="numfield" style="width: 780px; line-height: 36px; font-size: 21px; height: 36px;">
+                <span class="binmark binmark_c">dec</span>
+                <span id="textfield_dec" class="numfiled_span color_dec txt_shad color_dec" style="margin-right: 20px;">492</span>
+            </div>
+            <div id="numfield_float" class="numfield" style="width: 389px; font-size: 21px; line-height: 36px; height: 36px;">
+                <div id="popping_hint2" class="hint" style="display: none;">IEEE 754 floating point number representation</div>
+                <span class="binmark binmark_c">float</span>
+                <span id="textfield_float" class="numfiled_span color_dec txt_shad" style="margin-right: 20px;">2.43<span class="power">-321</span></span>
+            </div>
+            <div id="numfield_hex" class="numfield" style="width: 389px; font-size: 21px; line-height: 36px; height: 36px;">
+                <span class="binmark binmark_c">hex</span>
+                <span id="textfield_hex" class="numfiled_span color_hex txt_shad" style="margin-right: 20px;"><font class="color_gray">0000000000000</font>1EC</span>
+         </div>
+         <div id="numfield_bin" class="bignumfield numfield" style="width: 780px; line-height: 36px; font-size: 21px; height: 72px;">
+         <div id="popping_hint" class="hint" style="display: none;">Click to edit bits</div>
+            <table border="0" width="100%" height="100%" cellspacing="0">
+                <tbody><tr class="binfield_line">
+                    <td class="binmark binmark_l">63</td>
+                    <td class="bin_num_f"><span id="textfield_bin_15" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="bin_num_f"><span id="textfield_bin_14" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="bin_num_f"><span id="textfield_bin_13" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="bin_num_f"><span id="textfield_bin_12" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="binmark binmark_c">47</td>
+                    <td class="bin_num_f"><span id="textfield_bin_11" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="bin_num_f"><span id="textfield_bin_10" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="bin_num_f"><span id="textfield_bin_9" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="bin_num_f"><span id="textfield_bin_8" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="binmark binmark_r">32</td>
+                </tr>
+                <tr class="binfield_line">
+                    <td class="binmark binmark_l">31</td>
+                    <td class="bin_num_f"><span id="textfield_bin_7" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="bin_num_f"><span id="textfield_bin_6" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="bin_num_f"><span id="textfield_bin_5" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="bin_num_f"><span id="textfield_bin_4" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="binmark binmark_c">15</td>
+                    <td class="bin_num_f"><span id="textfield_bin_3" class="color_bin"><font>0000</font></span>
+                    </td>
+                    <td class="bin_num_f"><span id="textfield_bin_2" class="color_bin"><u>0001</u></span>
+                    </td>
+                    <td class="bin_num_f"><span id="textfield_bin_1" class="color_bin"><u>1110</u></span>
+                    </td>
+                    <td class="bin_num_f"><span id="textfield_bin_0" class="color_bin"><u>1100</u></span>
+                    </td>
+                    <td class="binmark binmark_r">0</td>
+                </tr>
+            </tbody></table>
+
+        </div>
+
+ </div>
+ <div id="switchers">
+    <div id="sign_switcher" class="bswitcher"><span id="sign_switcher_txt">signed</span>
+        <div id="signlist" class="dlist"></div>
+    </div>
+
+    <div id="type_switcher" class="bswitcher" style="background-position: 0px 0px;"><span id="type_switcher_txt">Unsigned</span>
+        <div id="typelist" class="dlist" style="visibility: hidden;"><div id="typelist_element_0" class="typelist_element list_element">Signed</div><div id="typelist_element_1" class="typelist_element list_element">Unsigned</div><div id="typelist_element_2" class="typelist_element list_element" style="display: block;">Double</div></div>
+    </div>
+    <div id="bit_switcher" class="bswitcher" style="background-position: 0px 0px;"><span id="bit_switcher_txt">64 bit</span>
+        <div id="bitlist" class="dlist" style="visibility: hidden;"><div id="bitlist_element_0" class="bitlist_element list_element">8 bit</div><div id="bitlist_element_1" class="bitlist_element list_element">16 bit</div><div id="bitlist_element_2" class="bitlist_element list_element">32 bit</div><div id="bitlist_element_3" class="bitlist_element list_element">64 bit</div><div id="bitlist_element_4" class="bitlist_element list_element">128 bit</div></div>
+    </div>
+
+    <div id="inp_switcher" class="bswitcher" style="background-position: 0px 0px;"><span id="inp_switcher_txt"><font class="color_bin txt_shad">bin</font></span>
+        <div id="inplist" class="dlist" style="visibility: hidden;"><div id="inplist_element_0" class="inplist_element list_element">hex</div><div id="inplist_element_1" class="inplist_element list_element">dec</div><div id="inplist_element_2" class="inplist_element list_element">bin</div></div>
+    </div>
+    <div id="numfield_ascii" class="ascfield" style="height: 36px; width: 120px;">
+            <span class="binmark binmark_c">ASCII</span>
+            <br>
+            <span id="textfield_ascii" class="numfiled_span color_hex txt_shad" style="margin-right: 20px; font-size: 14px; position: relative; top: -25px;">ì</span>
+     </div>
+</div>
+<div id="numblock" class="btn_block" style="width: 384px; top: 168px; line-height: 62px; font-size: 24px;">
+    <div id="btn_num_d" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_hex nbs_hex color_gray">D</span>
+    </div>
+    <div id="btn_num_e" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_hex nbs_hex color_gray">E</span>
+    </div>
+    <div id="btn_num_f" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_hex nbs_hex color_gray">F</span>
+    </div>
+    <div id="btn_num_a" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_hex nbs_hex color_gray">A</span>
+    </div>
+    <div id="btn_num_b" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_hex nbs_hex color_gray">B</span>
+    </div>
+    <div id="btn_num_c" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_hex nbs_hex color_gray">C</span>
+    </div>
+    <div id="btn_num_7" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec nbs_dec color_gray">7</span>
+    </div>
+    <div id="btn_num_8" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec nbs_dec color_gray">8</span>
+    </div>
+    <div id="btn_num_9" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec nbs_dec color_gray">9</span>
+    </div>
+    <div id="btn_num_4" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec nbs_dec color_gray">4</span>
+    </div>
+    <div id="btn_num_5" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec nbs_dec color_gray">5</span>
+    </div>
+    <div id="btn_num_6" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec nbs_dec color_gray">6</span>
+    </div>
+    <div id="btn_num_1" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_bin nbs_bin">1</span>
+    </div>
+    <div id="btn_num_2" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec nbs_dec color_gray">2</span>
+    </div>
+    <div id="btn_num_3" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec nbs_dec color_gray">3</span>
+    </div>
+    <div id="btn_num_0" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_bin nbs_bin">0</span>
+    </div>
+    <div id="btn_fun_eq" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_blue">=</span>
+    </div>
+    <div id="btn_fun_dot" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_blue">.</span>
+    </div>
+</div>
+<div id="memblock" class="btn_block" style="width: 117px; left: 421px; line-height: 62px; font-size: 24px;">
+    <div id="btn_fun_mem" unselectable="on" class="reg_btn std_btn mem_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_blue">M</span>
+    </div>
+    <div id="btn_fun_div" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_blue">÷</span>
+    </div>
+    <div id="btn_fun_mul" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_blue">×</span>
+    </div>
+    <div id="btn_fun_dif" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_blue">-</span>
+    </div>
+    <div id="btn_fun_plu" unselectable="on" class="reg_btn plus_btn" style="width: 117px; margin-right: 7px; margin-bottom: 7px; height: 99px; line-height: 99px;"><span class="txt_shad color_blue">+</span>
+    </div>
+</div>
+<div id="cmdblock" class="btn_block" style="width: 384px; top: 168px; line-height: 62px; font-size: 18px;">
+    <div id="btn_fun_bak" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_blue">Back</span>
+    </div>
+    <div id="btn_fun_ce" unselectable="on" class="reg_btn std_btn red_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad">CE</span>
+    </div>
+    <div id="btn_fun_ca" unselectable="on" class="reg_btn std_btn red_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad">C</span>
+    </div>
+    <div id="btn_fun_plm" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_bin">+/-</span>
+    </div>
+    <div id="btn_fun_rol" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_bin">RoL</span>
+    </div>
+    <div id="btn_fun_ror" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_bin">RoR</span>
+    </div>
+    <div id="btn_fun_mod" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_blue">MOD</span>
+    </div>
+    <div id="btn_fun_lsh" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_bin">&lt;&lt;</span>
+    </div>
+    <div id="btn_fun_rsh" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_bin">&gt;&gt;</span>
+    </div>
+    <div id="btn_fun_not" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_bin">NOT</span>
+    </div>
+    <div id="btn_fun_xly" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec">X«Y</span>
+    </div>
+    <div id="btn_fun_xry" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec">X»Y</span>
+    </div>
+    <div id="btn_fun_and" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec">AND</span>
+    </div>
+    <div id="btn_fun_or" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec">OR</span>
+    </div>
+    <div id="btn_fun_xor" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec">XOR</span>
+    </div>
+    <div id="btn_fun_nnd" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec">NAND</span>
+    </div>
+    <div id="btn_fun_nor" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec">NOR</span>
+    </div>
+    <div id="btn_fun_xnr" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;"><span class="txt_shad color_dec">XNOR</span>
+    </div>
+</div>
+<div class="popwind" id="memwind" style="width: 910px; height: 416px; top: 164px; left: 25px;">
+    <div id="memlines" style="height: 347px;">
+
+    </div>
+    <div id="memcmd" style="line-height: 62px;">
+        <div id="btn_fun_mcl" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;">
+            <span class="txt_shad color_dec"><b>Close</b></span>
+        </div>
+        <div id="btn_fun_mad" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;">
+            <span class="txt_shad color_bin"><b>Add</b></span>
+        </div>
+        <div id="btn_fun_clm" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;">
+            <span class="txt_shad color_hex"><b>Clear</b></span>
+        </div>
+    </div>
+
+
+</div>
+    <div class="popwind" id="binwind" style="width: 910px; height: 416px; top: 164px; left: 25px;">
+        <div id="binlines">
+
+            <div unselectable="on" class="bitswitch_btn sign" id="bitswbtn63" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">63</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn mantissa" id="bitswbtn62" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">62</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn mantissa" id="bitswbtn61" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">61</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn mantissa" id="bitswbtn60" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">60</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn mantissa" id="bitswbtn59" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">59</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn mantissa" id="bitswbtn58" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">58</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn mantissa" id="bitswbtn57" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">57</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn mantissa" id="bitswbtn56" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">56</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn mantissa" id="bitswbtn55" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">55</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn mantissa" id="bitswbtn54" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">54</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn mantissa" id="bitswbtn53" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">53</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn mantissa" id="bitswbtn52" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">52</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn51" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">51</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn50" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">50</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn49" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">49</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn48" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">48</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn47" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">47</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn46" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">46</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn45" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">45</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn44" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">44</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn43" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">43</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn42" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">42</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn41" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">41</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn40" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">40</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn39" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">39</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn38" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">38</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn37" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">37</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 0.5;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn36" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">36</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn35" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">35</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn34" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">34</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn33" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">33</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn32" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">32</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn31" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">31</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn30" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">30</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn29" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">29</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn28" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">28</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn27" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">27</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn26" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">26</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn25" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">25</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn24" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">24</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn23" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">23</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn22" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">22</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn21" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">21</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn20" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">20</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn19" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">19</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn18" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">18</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn17" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">17</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn16" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">16</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn15" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">15</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn14" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">14</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn13" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">13</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn12" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">12</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn11" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">11</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn10" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">10</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn9" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">9</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn8" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">8</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">1</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn7" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">7</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">1</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn6" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">6</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">1</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn5" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">5</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">1</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn4" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">4</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn3" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">3</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">1</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn2" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">2</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">1</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn1" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">1</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+            <div unselectable="on" class="bitswitch_btn" id="bitswbtn0" style="height: 40.3209px;">
+                <span class="bitswitch_number binmark">0</span>
+                <span class="bitswitch_glyph txt_shad color_bin" style="opacity: 1;">0</span>
+            </div>
+        </div>
+        <div id="bincmd">
+            <div id="btn_fun_bcl" unselectable="on" class="reg_btn std_btn" style="width: 117px; height: 62px; margin-right: 7px; margin-bottom: 7px; line-height: 62px;">
+                <span class="txt_shad color_dec"><b>Close</b></span>
+            </div>
+        </div>
+        <div id="binswitch_tooltip" class="txt_shad">
+            <span id="bithint1">You can switch bits from 0 to 1 by clicking on them</span>
+            <span id="bithint2" style="display:none">Mantissa ( IEEE 754 )</span>
+            <span id="bithint3" style="display:none">Sign ( IEEE 754 )</span>
+        </div>
+
+    </div>
+</div>
+</div>
+<script src="./assets/jquery.min.js"></script>
+<script src="./assets/CSSPlugin.min.js"></script>
+<script src="./assets/EasePack.min.js"></script>
+<script src="./assets/TweenLite.min.js"></script>
+<script src="./assets/bint.min.js"></script>
+<script src="./assets/bint2.min.js"></script>
+<script src="./assets/const.js"></script>
+<script src="./assets/binary-parser.js"></script>
+<script src="./assets/bignumber.js"></script>
+<script src="./assets/bigdecimal.js"></script>
+<script type="text/javascript" src="./assets/jquery.zclip.min.js"></script>
+<script src="./assets/calc.js"></script>
+<script>
+    $(document).ready(function () {
+        init();
+    })
+</script>
+<script src="./assets/plusone.js" async="" gapi_processed="true"></script>
+<script src="./assets/widgets.js" async=""></script>
+
+</body>
+</html>
