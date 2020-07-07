@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/gpproton/devcalc#readme",
   "devDependencies": {
-    "electron": "^6.0.3"
+    "electron": "^9.1.0"
   }
 }
